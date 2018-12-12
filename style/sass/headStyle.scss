@@ -29,3 +29,25 @@ header {
         }
     }
 }
+
+.posts {
+    position: relative;
+    top: 60px;
+    width: 800px;
+    margin: auto;
+    .post {
+        border: 1px solid gray;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        font-family: 'Open Sans', sans-serif;
+        p {
+            padding: 10px;
+            padding-top: 0;
+        }
+        h2 {
+            color: #339bfd;
+            font-size: 20px;
+            padding: 10px;
+        }
+    }
+}

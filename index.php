@@ -1,5 +1,5 @@
 <?php 
-include_once "./templates/header.php";
+include_once "./templates/generation.php";
 ?>
 
 
@@ -15,6 +15,12 @@ include_once "./templates/header.php";
 <body>
 <?php 
 generation_head_menu($mysqli);
+
 ?>
+<div class="posts">
+    <?php 
+        generation_posts($mysqli, 1);
+    ?>
+</div>
 </body>
 </html>
