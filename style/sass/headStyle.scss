@@ -54,7 +54,7 @@ header {
 }
 
 .post {
-    position: relative;
+    position: absolute;
     top: 70px;
     width: 800px;
     margin: auto;
@@ -66,6 +66,13 @@ header {
     p {
         font-size: 18px;
         font-family: 'Open Sans', sans-serif;
-        margin-bottom: 40px;
+        padding-bottom: 30px;
     }
+}
+
+.comments {
+    position: relative;
+    top: 30px;
+    width: 800px;
+    margin: auto;
 }

@@ -19,7 +19,14 @@ $id_article = $_REQUEST["id_article"];
      <div class="post">
         <?php
         generation_post($mysqli, $id_article);
+        // print_r($_SERVER);
         ?>
      </div>
+    <div class="comments">
+        <hr>
+        <form action="<?= $_SERVER["SCRIPT_NAME"] ?>">
+            <textarea name="comment" id="" style="width:800px; height:50px;"></textarea>
+        </form>
+    </div>
 </body>
 </html>
