@@ -38,6 +38,8 @@ function generation_posts($mysqli, $id_topic) {
             </div>
             <?php
         }
+    } else {
+        echo "В этом раздели статей нету";
     }
     
 }
