@@ -1,5 +1,9 @@
 <?php 
 include_once "./templates/generation.php";
+
+$id_topic = $_REQUEST['id_topic'];
+
+// print_r($_REQUEST);
 ?>
 
  <!DOCTYPE html>
@@ -14,5 +18,10 @@ include_once "./templates/generation.php";
      <?php 
      generation_head_menu($mysqli);
      ?>
+     <div class="posts">
+        <?php 
+            generation_posts($mysqli, $id_topic);
+        ?>
+    </div>
  </body>
  </html>

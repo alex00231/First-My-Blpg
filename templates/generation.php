@@ -5,7 +5,7 @@ include_once "mysqlConnect.php";
 ?>
 <link rel="stylesheet" href="../style/css/headStyle.css">
 <?php
-function generation_head_menu($mysqli) {
+function generation_head_menu ($mysqli) {
     $sql = "SELECT * FROM `topic`";
     $resSQL = $mysqli -> query($sql);
     ?>
@@ -25,14 +25,14 @@ function generation_head_menu($mysqli) {
     <?php
 }
 
-function generation_posts($mysqli, $id_topic) {
+function generation_posts ($mysqli, $id_topic) {
     $sql = "SELECT * FROM `articles` WHERE `id_topic` = $id_topic";
     $res = $mysqli -> query($sql);
 
     if ($res -> num_rows > 0) {
         while ($resArticle = $res -> fetch_assoc()) {
             ?>
-            <div class="post">
+            <div class="postCatalog">
                 <h2><a href="post.php?id_article=<?= $resArticle['id'] ?>"><?= $resArticle['title'] ?></a></h2>
                 <p class="text"><?= mb_substr($resArticle['text'], 0, 158, 'UTF-8') ?></p>
             </div>
@@ -41,7 +41,17 @@ function generation_posts($mysqli, $id_topic) {
     } else {
         echo "В этом раздели статей нету";
     }
-    
 }
-?>
-  
+
+function generation_post ($mysqli, $id_article) {
+    $sql = "SELECT * FROM `articles` WHERE `id` = '$id_article'";
+    $res = $mysqli -> query($sql);
+    
+    if ($resPost = $res -> num_rows === 1) {
+        $resPost = $res -> fetch_assoc()?>
+        <h1><?= $resPost['title'] ?></h1>
+        <p><?= $resPost['text'] ?></p>
+        <?php
+    }
+}
+?> 

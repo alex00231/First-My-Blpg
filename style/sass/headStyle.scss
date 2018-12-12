@@ -9,6 +9,7 @@ header {
     position: fixed;
     background-color: rgb(46, 46, 46);
     width: 100%;
+    z-index: 1000;
     nav {
         width: 1100px;
         margin: auto;
@@ -32,10 +33,10 @@ header {
 
 .posts {
     position: relative;
-    top: 60px;
+    top: 70px;
     width: 800px;
     margin: auto;
-    .post {
+    .postCatalog {
         border: 1px solid gray;
         border-radius: 10px;
         margin-bottom: 15px;
@@ -49,5 +50,22 @@ header {
             font-size: 20px;
             padding: 10px;
         }
+    }
+}
+
+.post {
+    position: relative;
+    top: 70px;
+    width: 800px;
+    margin: auto;
+    position: relative;
+    h1 {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+    }
+    p {
+        font-size: 18px;
+        font-family: 'Open Sans', sans-serif;
+        margin-bottom: 40px;
     }
 }
