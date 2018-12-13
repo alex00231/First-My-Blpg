@@ -43,23 +43,39 @@ header {
       padding: 10px; }
 
 .post {
-  position: absolute;
-  top: 70px;
   width: 800px;
-  margin: auto;
-  position: relative; }
+  margin: auto; }
   .post h1 {
     text-align: center;
     font-family: 'Open Sans', sans-serif; }
   .post p {
     font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
-    padding-bottom: 30px; }
+    font-family: 'Open Sans', sans-serif; }
+
+.headBlock {
+  margin: auto;
+  width: 1000px;
+  position: relative;
+  top: 70px; }
 
 .comments {
-  position: relative;
-  top: 30px;
   width: 800px;
   margin: auto; }
+  .comments p {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    margin-bottom: 8px; }
+  .comments .comment {
+    margin: 20px auto; }
+    .comments .comment p {
+      font-size: 15px;
+      font-family: 'Open Sans', sans-serif; }
+    .comments .comment p:last-child {
+      margin-top: 8px;
+      margin-bottom: 7px; }
+    .comments .comment p:first-child {
+      margin-top: 8px;
+      margin-bottom: 0; }
 
 /*# sourceMappingURL=headStyle.css.map */

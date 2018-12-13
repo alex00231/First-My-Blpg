@@ -2,6 +2,9 @@
 include_once "./templates/generation.php";
 
 $id_article = $_REQUEST["id_article"];
+$comment = $_REQUEST["comment"];
+
+$sql = "INSERT INTO `comments`(`comment`, `id_article`, `date`) VALUES ('$comment', '$id_article', CURRENT_TIMESTAMP)"
 ?>
 
 <!DOCTYPE html>
@@ -15,18 +18,27 @@ $id_article = $_REQUEST["id_article"];
 <body>
     <?php 
         generation_head_menu($mysqli);
-     ?>
-     <div class="post">
-        <?php
-        generation_post($mysqli, $id_article);
-        // print_r($_SERVER);
-        ?>
-     </div>
-    <div class="comments">
-        <hr>
-        <form action="<?= $_SERVER["SCRIPT_NAME"] ?>">
-            <textarea name="comment" id="" style="width:800px; height:50px;"></textarea>
-        </form>
+    ?>
+    <div class="headBlock">
+        <div class="post">
+            <?php
+            generation_post($mysqli, $id_article);
+            // print_r($_SERVER);
+            ?>
+        </div>
+        <div class="comments">
+            <hr>
+            <form action="<?= $_SERVER["SCRIPT_NAME"] ?>">
+                <textarea name="comment" id="" style="width:800px; height:50px;"></textarea>
+                <input type="submit" value="Отправить">
+            </form>
+            <p>Коментарии:</p>
+            <hr>
+            
+            <?php 
+            generation_comment($mysqli, $id_article);
+            ?>
+        </div>
     </div>
 </body>
 </html>

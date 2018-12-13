@@ -46,11 +46,33 @@ function generation_posts ($mysqli, $id_topic) {
 function generation_post ($mysqli, $id_article) {
     $sql = "SELECT * FROM `articles` WHERE `id` = '$id_article'";
     $res = $mysqli -> query($sql);
-    
-    if ($resPost = $res -> num_rows === 1) {
+
+    if ($res -> num_rows === 1) {
         $resPost = $res -> fetch_assoc()?>
         <h1><?= $resPost['title'] ?></h1>
         <p><?= $resPost['text'] ?></p>
+        <p>Дата публикации: <?= substr($resPost['date'], 0, 11) ?></p>
+        <?php
+    }
+}
+
+function generation_comment ($mysqli, $id_article) {
+    $sql = "SELECT * FROM `comments` WHERE `id_article` = $id_article";
+    $resSQL = $mysqli -> query($sql);
+
+    if ($resSQL -> num_rows > 0) {
+        while ($resComment = $resSQL -> fetch_assoc()) {
+            ?> 
+            <div class="comment">
+                <p><?= $resComment['comment'] ?></p>
+                <p>Оставлин: <?= substr($resComment['date'], 0, 11)  ?></p>
+            </div>
+            <hr>
+            <?php
+        }
+    } else {
+        ?>
+        <p>Комментариев нет</p>
         <?php
     }
 }

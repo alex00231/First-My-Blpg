@@ -54,11 +54,8 @@ header {
 }
 
 .post {
-    position: absolute;
-    top: 70px;
     width: 800px;
     margin: auto;
-    position: relative;
     h1 {
         text-align: center;
         font-family: 'Open Sans', sans-serif;
@@ -66,13 +63,39 @@ header {
     p {
         font-size: 18px;
         font-family: 'Open Sans', sans-serif;
-        padding-bottom: 30px;
+        // padding-bottom: 30px
     }
 }
 
-.comments {
+.headBlock {
+    margin: auto;
+    width: 1000px;
     position: relative;
-    top: 30px;
+    top: 70px;
+}
+
+.comments {
     width: 800px;
     margin: auto;
+    p {
+        font-size: 20px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 800;
+        margin-bottom: 8px;
+    }
+    .comment {
+        margin: 20px auto;
+        p {
+            font-size: 15px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        p:last-child {
+            margin-top: 8px;
+            margin-bottom: 7px;
+        }
+        p:first-child {
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+    }
 }
