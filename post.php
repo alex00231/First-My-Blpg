@@ -4,7 +4,12 @@ include_once "./templates/generation.php";
 $id_article = $_REQUEST["id_article"];
 $comment = $_REQUEST["comment"];
 
-$sql = "INSERT INTO `comments`(`comment`, `id_article`, `date`) VALUES ('$comment', '$id_article', CURRENT_TIMESTAMP)"
+$sql = "INSERT INTO `comments`(`comment`, `id_article`, `date`) VALUES ('$comment', '$id_article', CURRENT_TIMESTAMP)";
+
+if (isset($_REQUEST['doGo']) === true) {
+    send_comment($mysqli, $_REQUEST['comment'], $id_article);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +35,7 @@ $sql = "INSERT INTO `comments`(`comment`, `id_article`, `date`) VALUES ('$commen
             <hr>
             <form action="<?= $_SERVER["SCRIPT_NAME"] ?>">
                 <textarea name="comment" id="" style="width:800px; height:50px;"></textarea>
-                <input type="submit" value="Отправить">
+                <input name="doGo" type="submit" value="Отправить">
             </form>
             <p>Коментарии:</p>
             <hr>
@@ -40,5 +45,6 @@ $sql = "INSERT INTO `comments`(`comment`, `id_article`, `date`) VALUES ('$commen
             ?>
         </div>
     </div>
+    <script src="./js/script.js"></script>
 </body>
 </html>

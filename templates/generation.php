@@ -76,4 +76,9 @@ function generation_comment ($mysqli, $id_article) {
         <?php
     }
 }
+
+function send_comment ($mysqli, $comment, $id_article) {
+    $sql = "INSERT INTO `comments` (`comment`, `id_article`, `date`) VALUES ('$comment', '$id_article', CURRENT_TIMESTAMP)";
+    $mysqli -> query($sql);
+}
 ?> 
