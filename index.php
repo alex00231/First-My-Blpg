@@ -13,8 +13,15 @@ include_once "./templates/generation.php";
     <link rel="stylesheet" href="./style/css/headStyle.css">
 </head>
 <body>
-<?php 
-generation_head_menu($mysqli);
-?>
+    <?php 
+        generation_head_menu($mysqli);
+    ?>
+
+    <div class="posts">
+        <?php 
+            generation_posts_index($mysqli);
+        ?>
+    </div>
+
 </body>
 </html>

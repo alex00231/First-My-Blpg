@@ -13,7 +13,7 @@ function generation_head_menu ($mysqli) {
     <header>
         <nav>
             <ul>
-                <li><a href="#">Главное</a></li>
+                <li><a href="/">Главное</a></li>
                 <?php
                     while ($rowTopic = $resSQL -> fetch_assoc()) {
                         echo '<li><a href="./topic.php?id_topic='. $rowTopic["id"] .'">'. $rowTopic['name'].'</a></li>';
@@ -42,6 +42,25 @@ function generation_posts ($mysqli, $id_topic) {
         echo "В этом раздели статей нету";
     }
 }
+
+function generation_posts_index ($mysqli) {
+    $sql = "SELECT * FROM `articles`";
+    $res = $mysqli -> query($sql);
+
+    if ($res -> num_rows > 0) {
+        while ($resArticle = $res -> fetch_assoc()) {
+            ?>
+            <div class="postCatalog">
+                <h2><a href="post.php?id_article=<?= $resArticle['id'] ?>"><?= $resArticle['title'] ?></a></h2>
+                <p class="text"><?= mb_substr($resArticle['text'], 0, 158, 'UTF-8') ?></p>
+            </div>
+            <?php
+        }
+    } else {
+        echo "Нет статей";
+    }
+}
+
 
 function generation_post ($mysqli, $id_article) {
     $sql = "SELECT * FROM `articles` WHERE `id` = '$id_article'";
@@ -80,5 +99,6 @@ function generation_comment ($mysqli, $id_article) {
 function send_comment ($mysqli, $comment, $id_article) {
     $sql = "INSERT INTO `comments` (`comment`, `id_article`, `date`) VALUES ('$comment', '$id_article', CURRENT_TIMESTAMP)";
     $mysqli -> query($sql);
+    echo '<script>location.replace("http://first-my-blog-php/post.php?id_article=' . $id_article . '");</script>'; exit;
 }
 ?> 

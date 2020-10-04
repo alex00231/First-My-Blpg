@@ -1,6 +1,5 @@
 <?php
 include_once "./templates/generation.php";
-
 $id_article = $_REQUEST["id_article"];
 $comment = $_REQUEST["comment"];
 
@@ -35,13 +34,14 @@ if (isset($_REQUEST['doGo']) === true) {
             <hr>
             <form action="<?= $_SERVER["SCRIPT_NAME"] ?>">
                 <textarea name="comment" id="" style="width:800px; height:50px;"></textarea>
+                <input type="hidden" name="id_article" value="<?php echo $id_article ?>">
                 <input name="doGo" type="submit" value="Отправить">
             </form>
             <p>Коментарии:</p>
             <hr>
             
             <?php 
-            generation_comment($mysqli, $id_article);
+                generation_comment($mysqli, $id_article);
             ?>
         </div>
     </div>
